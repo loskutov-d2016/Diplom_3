@@ -8,8 +8,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import static org.hamcrest.core.IsEqual.equalTo;
 
 
@@ -53,7 +53,7 @@ public class PersonalAccountTest {
         mainPage.clickPersonalAccountButton();
         Thread.sleep(1000);
         // проверяем наличие ссылки "Профиль" в лк. Можно добавить другие проверки по тз нужен только переход в лк
-        String linkProfile = driver.findElement(By.xpath("//*[text()='Профиль']")).getText();
+        String linkProfile = mainPage.getLinkProfile();
         Assert.assertEquals(linkProfile, "Профиль");
     }
 
@@ -72,8 +72,8 @@ public class PersonalAccountTest {
         mainPage.clickConstructorButton();
 
         // Проверяю наличие кнопки "Оформить заказ" после аутентификации
-        String verificationText = driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
-        Assert.assertEquals(verificationText, "Оформить заказ");
+        String welcomeText = mainPage.getWelcomeText();
+        Assert.assertEquals(welcomeText, "Оформить заказ");
     }
 
     @Test
@@ -90,9 +90,10 @@ public class PersonalAccountTest {
 
         mainPage.clickPersonalAccountButton();
         mainPage.clickStellarBurgersLogo();
+        Thread.sleep(1000);
         // Проверяю наличие кнопки "Оформить заказ"
-        String verificationText = driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
-        Assert.assertEquals(verificationText, "Оформить заказ");
+        String welcomeText = mainPage.getWelcomeText();
+        Assert.assertEquals(welcomeText, "Оформить заказ");
     }
 
     @Test
@@ -112,7 +113,7 @@ public class PersonalAccountTest {
         mainPage.clickLogoutButton();
         Thread.sleep(1000);
         // Проверяю наличие кнопки "Войти"
-        String loginButton = driver.findElement(By.xpath("//button[text()='Войти']")).getText();
+        String loginButton = mainPage.getLoginButton();
         Assert.assertEquals(loginButton, "Войти");
     }
 

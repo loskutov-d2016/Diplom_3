@@ -8,7 +8,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -54,27 +53,25 @@ public class ConstructorNavigationTest {
         loginPage.fillLoginForm(email, password);
         Thread.sleep(1000);
 
-        // соус
+        // Соусы
         mainPage.clickSaucesSection();
         Thread.sleep(1000);
-        String saucesHeader = driver.findElement(By.xpath("//div[contains(@class, 'tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect') " +
-                "and .//span[text()='Соусы']]")).getText();
+        String saucesHeader = mainPage.getCurrentSectionHeader();
         Assert.assertEquals("Sauces section header is not displayed as expected", "Соусы", saucesHeader);
 
-        // начинки
+        // Начинки
         mainPage.clickFillingsSection();
         Thread.sleep(1000);
-        String fillingsHeader = driver.findElement(By.xpath("//div[contains(@class, 'tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect')" +
-                " and .//span[text()='Начинки']]")).getText();
+        String fillingsHeader = mainPage.getCurrentSectionHeader();
         Assert.assertEquals("Fillings section header is not displayed as expected", "Начинки", fillingsHeader);
 
-        // булки
+        // Булки
         mainPage.clickBunsSection();
         Thread.sleep(1000);
-        String bunsHeader = driver.findElement(By.xpath("//div[contains(@class, 'tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect') " +
-                "and .//span[text()='Булки']]")).getText();
+        String bunsHeader = mainPage.getCurrentSectionHeader();
         Assert.assertEquals("Buns section header is not displayed as expected", "Булки", bunsHeader);
     }
+
 
     @After
     public void tearDown() {

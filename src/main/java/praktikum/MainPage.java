@@ -80,4 +80,28 @@ public class MainPage {
         driver.findElement(fillingsSection).click();
     }
 
+    @Step("Получения заголовка текущего раздела")
+    public String getCurrentSectionHeader() {
+        return driver.findElement(By.xpath("//div[contains(@class, 'tab_tab__1SPyG tab_tab_type_current__2BEPc')]//span")).getText();
+    }
+    @Step("Проверка текста Оформить заказ")
+    public String getWelcomeText() {
+        return driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
+    }
+
+    @Step("Проверка кнопки Войти")
+    public String getLoginButton() {
+        return driver.findElement(By.xpath("//button[text()='Войти']")).getText();
+    }
+
+    @Step("Проверка кнопки Профиль")
+    public String getLinkProfile() {
+        return driver.findElement(By.xpath("//*[text()='Профиль']")).getText();
+    }
+
+    @Step("Проверка наличия текста Вход")
+    public String getLoginText() {
+        return driver.findElement(By.xpath("//h2[text()='Вход']")).getText();
+    }
+
 }

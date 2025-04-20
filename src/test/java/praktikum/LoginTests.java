@@ -8,10 +8,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.testng.Assert;
-//import org.testng.annotations.BeforeClass;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -54,7 +51,7 @@ public class LoginTests {
         Thread.sleep(1000);
 
         // Проверяю наличие кнопки "Оформить заказ" после аутентификации
-        String welcomeText = driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
+        String welcomeText = mainPage.getWelcomeText();
         Assert.assertEquals(welcomeText, "Оформить заказ");
     }
 
@@ -71,7 +68,7 @@ public class LoginTests {
         Thread.sleep(1000);
 
         // Проверяю наличие кнопки "Оформить заказ" после аутентификации
-        String welcomeText = driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
+        String welcomeText = mainPage.getWelcomeText();
         Assert.assertEquals(welcomeText, "Оформить заказ");
     }
 
@@ -91,7 +88,7 @@ public class LoginTests {
         Thread.sleep(1000);
 
         // Проверяю наличие кнопки "Оформить заказ" после аутентификации
-        String welcomeText = driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
+        String welcomeText = mainPage.getWelcomeText();
         Assert.assertEquals(welcomeText, "Оформить заказ");
     }
 
@@ -111,7 +108,7 @@ public class LoginTests {
         Thread.sleep(1000);
 
         // Проверяю наличие кнопки "Оформить заказ" после аутентификации
-        String welcomeText = driver.findElement(By.xpath("//button[text()='Оформить заказ']")).getText();
+        String welcomeText = mainPage.getWelcomeText();
         Assert.assertEquals(welcomeText, "Оформить заказ");
     }
 

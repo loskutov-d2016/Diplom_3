@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class RegistrationTests {
@@ -38,7 +37,7 @@ public class RegistrationTests {
         Thread.sleep(1000);
 
         // Проверка наличия текста "Вход"
-        String loginText = driver.findElement(By.xpath("//h2[text()='Вход']")).getText();
+        String loginText = mainPage.getLoginText();
         Assert.assertEquals("Login text is not displayed as expected", "Вход", loginText);
     }
 
